@@ -22,6 +22,18 @@ class Student:
         stud_avg = sum(my_list) / len(my_list)
         return stud_avg
 
+    def avg_grade_course(students, course):
+        my_list = []
+        for student in students:
+            if student.grades.get(course) != None:
+                for kurs in student.grades.get(course):
+                    my_list.append(course)
+            else:
+                pass
+        avg_grade_course = sum(my_list) / len(my_list)
+        return avg_grade_course
+
+
     def __str__(self):
         print("Name: ", self.name)
         print("Surname: ", self.surname)
@@ -34,7 +46,6 @@ class Student:
             print("Not a student")
         else:
             return self.avg_grade() < other.avg_grade()
-
 
 
 class Mentor:
@@ -86,6 +97,16 @@ class Lecturer (Mentor):
         else:
             return self.lec_avg_grade() < other.lec_avg_grade()
 
+    def lec_avg_grade_kurs(lecturers, course):
+        my_list = []
+        for lecturer in lecturers:
+            if lecturer.grades.get(course) != None:
+                for kurs in lecturer.grades.get(course):
+                    my_list.append(course)
+            else:
+                pass
+            lec_avg_grade_course = sum(my_list) / len(my_list)
+            return lec_avg_grade_course
 
 
 best_student = Student('Ruoy', 'Eman', 'your_gender')
